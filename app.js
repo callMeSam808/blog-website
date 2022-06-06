@@ -15,10 +15,13 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+let posts = [];
+
 app.get("/", (req, res) => {
   res.render("home", {
     homeStartingContent: homeStartingContent
   });
+  console.log(posts);
 });
 
 app.get("/about", (req, res) => {
@@ -38,10 +41,13 @@ app.get("/compose", (req, res) => {
 });
 
 app.post("/compose", (req, res) => {
-  console.log(req.body.publish);
-})
-
-
+  const post = {
+    blogTitle: req.body.blogTitle,
+    blogPost: req.body.blogPost
+  }
+  posts.push(post);
+  res.redirect("/");
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
