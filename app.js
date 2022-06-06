@@ -19,9 +19,13 @@ let posts = [];
 
 app.get("/", (req, res) => {
   res.render("home", {
-    homeStartingContent: homeStartingContent
+    homeStartingContent: homeStartingContent,
+    posts: posts
   });
-  console.log(posts);
+});
+
+app.get("/posts/:postTitle", (req, res) => {
+  console.log(req.params.postTitle);
 });
 
 app.get("/about", (req, res) => {
