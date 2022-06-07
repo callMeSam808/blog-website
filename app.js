@@ -38,7 +38,6 @@ app.get("/posts/:postTitle", (req, res) => {
   });
 });
 
-
 app.get("/about", (req, res) => {
   res.render("about", {
     aboutContent: aboutContent
