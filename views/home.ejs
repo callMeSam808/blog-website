@@ -6,7 +6,9 @@
 <% posts.forEach((post) => { %>
   <div class="post">
     <h3><%= post.blogTitle %></h3>
-    <p><%= post.blogPost.substring(0, 100) + "..." %></p>
+    <p><%= post.blogPost.substring(0, 100) + "..." %>
+      <a href="/posts/<%= post.blogTitle %>">Read More</a>
+    </p>
   </div>
 <% }) %>
 
